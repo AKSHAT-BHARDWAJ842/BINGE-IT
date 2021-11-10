@@ -1,0 +1,42 @@
+<%- include('partial/header'); -%>
+
+<div class="box1">
+    <div class="img_box">
+    <img src=<%= "https://image.tmdb.org/t/p/w500"+ results.mr.poster_path  %> alt="">
+    </div>
+    <div class="details">
+    <p id="titl"><%= results.mr.title %></p>
+    <p class="sub_h">Overview</p>
+    <p class="ovview"><%= results.mr.overview %></p>
+    <p id="rate"><%= results.mr.vote_average %></p>
+    </div>
+</div> 
+<div class="otdet">
+    <div class="crew">
+        <p>Director : <%= results.cr.direct[0] %></p>
+        <p>Producer :
+            <% for(i=0;i < 3;i++) { %>  
+            <%= results.cr.producer[i] %>,
+            <% } %>
+        </p>
+        
+        <p>Star Cast : 
+            <% for(i=0;i < 5;i++) { %>  
+            <%= results.cr.cast[i] %>,
+            <% } %></p>
+    </div>
+</div>
+<div class="cast">
+ <img src="images/cast-1.jpg" alt="">
+ <img src="images/cast-1.jpg" alt="">
+ <img src="images/cast-1.jpg" alt="">
+ <img src="images/cast-1.jpg" alt="">
+ <img src="images/cast-1.jpg" alt="">
+</div>
+<div class="trailer">
+ <img src=<%= "https://image.tmdb.org/t/p/w500"+results.mr.backdrop_path %> alt="" class="vid_bg" height=" 420px">
+ <iframe width="80%" height="98%" src=<%= "https://www.youtube.com/embed/"+ results.vr %> title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+
+<%- include('partial/footer'); -%>

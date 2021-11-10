@@ -1,0 +1,114 @@
+<%- include('partial/header'); -%>
+
+<div class="group">
+<h3 class="sub_head">Most Popular</h3>
+<main id="main">
+        
+    <% for(i=0;i < 6;i++) { %>   
+    <div class="box">
+        <a class="m_btn" href="/details/<%= p_result[i].id %>">
+        <span class="green"><%= p_result[i].vote_average %></span>
+        <img src= <%= "https://image.tmdb.org/t/p/w500"+ p_result[i].poster_path  %> alt="" class="image">
+        <div class="info">
+            <h3 class="title"><%= p_result[i].original_title %></h3>
+            
+        </div>
+        <div class="overview">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde voluptas nihil odio ad itaque voluptatibus quasi temporibus eos, harum quo animi ut! Et, odit nihil cumque possimus, inventore laborum quod nam quia totam incidunt, fugiat blanditiis voluptatibus dicta ipsam esse!
+        </div>
+       </a>
+    </div>
+    <% } %>
+    
+</main>
+</div>
+<div class="group">
+<h3 class="sub_head">Bollywood</h3>
+<main id="main">
+        
+    <% for(i=0;i < 6;i++) { %>   
+    <div class="box">
+        <a class="m_btn" href="">
+        <span class="green"><%= b_result[i].vote_average %></span>
+        <img src= <%= "https://image.tmdb.org/t/p/w500"+ b_result[i].poster_path  %> alt="" class="image">
+        <div class="info">
+            <h3 class="title"><%= b_result[i].title %></h3>
+            
+        </div>
+        <div class="overview">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde voluptas nihil odio ad itaque voluptatibus quasi temporibus eos, harum quo animi ut! Et, odit nihil cumque possimus, inventore laborum quod nam quia totam incidunt, fugiat blanditiis voluptatibus dicta ipsam esse!
+        </div>
+        </a>
+    </div>
+    <% } %>
+    
+</main>
+</div>
+<div class="group">
+<h3 class="sub_head">Horror</h3>
+<main id="main">
+        
+    <% for(i=0;i < 6;i++) { %>   
+    <div class="box">
+        <a class="m_btn" href="">
+        <span class="green"><%= h_result[i].vote_average %></span>
+        <img src= <%= "https://image.tmdb.org/t/p/w500"+ h_result[i].poster_path  %> alt="" class="image">
+        <div class="info">
+            <h3 class="title"><%= h_result[i].title %></h3>
+            
+        </div>
+        <div class="overview">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde voluptas nihil odio ad itaque voluptatibus quasi temporibus eos, harum quo animi ut! Et, odit nihil cumque possimus, inventore laborum quod nam quia totam incidunt, fugiat blanditiis voluptatibus dicta ipsam esse!
+        </div>
+        </a>
+    </div>
+    <% } %>
+    
+</main>
+</div>
+<div class="group">
+<h3 class="sub_head">Thriller</h3>
+<main id="main">
+        
+    <% for(i=0;i < 6;i++) { %>   
+    <div class="box">
+        <a class="m_btn" href="">
+        <span class="green"><%= t_result[i].vote_average %></span>
+        <img src= <%= "https://image.tmdb.org/t/p/w500"+ t_result[i].poster_path  %> alt="" class="image">
+        <div class="info">
+            <h3 class="title"><%= t_result[i].title %></h3>
+            
+        </div>
+        <div class="overview">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde voluptas nihil odio ad itaque voluptatibus quasi temporibus eos, harum quo animi ut! Et, odit nihil cumque possimus, inventore laborum quod nam quia totam incidunt, fugiat blanditiis voluptatibus dicta ipsam esse!
+        </div>
+        </a>
+    </div>
+    <% } %>
+    
+</main>
+</div>
+<div class="group">
+<h3 class="sub_head">Animation</h3>
+<main id="main">
+        
+    <% for(i=0;i < 6;i++) { %>   
+    <div class="box">
+        <a class="m_btn" href="">
+        <span class="green"><%= an_result[i].vote_average %></span>
+        <img src= <%= "https://image.tmdb.org/t/p/w500"+ an_result[i].poster_path  %> alt="" class="image">
+        <div class="info">
+            <h3 class="title"><%= an_result[i].title %></h3>
+            
+        </div>
+        <div class="overview">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde voluptas nihil odio ad itaque voluptatibus quasi temporibus eos, harum quo animi ut! Et, odit nihil cumque possimus, inventore laborum quod nam quia totam incidunt, fugiat blanditiis voluptatibus dicta ipsam esse!
+        </div>
+        </a>
+    </div>
+    <% } %>
+    
+</main>
+</div>
+
+<%- include('partial/footer'); -%>
