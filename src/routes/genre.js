@@ -14,7 +14,7 @@ function apiCall(url) {
             }
 
             try {
-                return callback(null, JSON.parse(body));
+                return callback(null, JSON.parse(body).results);
             } catch (error) {
                 return callback(error);
             }
@@ -24,17 +24,17 @@ function apiCall(url) {
 
 genre.get("/:id/:name",function(req,res){
     var id=(req.params.id);
-    var d_r;
+    
     var name=(req.params.name);
     if(name=="bollywood")
-    {
+    {   console.log("inside bollywood");
         var d_url=(BASE_URL+"/discover/movie?"+ API_KEY+"&language=en-US&sort_by=popularity.desc&page=1&primary_release_year=2021&with_original_language=hi");
         async.parallel({
             d_r: apiCall(d_url)
-        }, function(err, res) {
+        }, function(err, result) {
             if (err) console.log(err);
-            console.log(res.results);
-            res.render("genre", {dr:results.results});
+            var heading='Bollywood'
+            res.render("genre", {detr:result, hh: heading});
         });
     }
     else if(name=="mp")
@@ -42,19 +42,20 @@ genre.get("/:id/:name",function(req,res){
         d_url=(BASE_URL+ "/discover/movie?sort_by=popularity.desc&"+ API_KEY);
         async.parallel({
             d_r: apiCall(d_url)
-        }, function(err, results) {
+        }, function(err, result) {
             if (err) console.log(err);
-            console.log(results);
-            res.render("genre", {dr:results.results});
+            var heading='Most Popular'
+            res.render("genre", {detr:result,hh: heading});
         });
     }
     else{
         d_url=(BASE_URL+"/discover/movie?"+ API_KEY+ "&with_genres="+id);
         async.parallel({
             d_r: apiCall(d_url)
-        }, function(err, results) {
+        }, function(err, result) {
             if (err) console.log(err);
-            res.render("genre", {dr:results.results});
+            var heading=name;
+            res.render("genre", {detr:result,hh:heading});
         });
     }
     
