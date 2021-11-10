@@ -28,7 +28,7 @@ nav{
 .navbar {
     display: flex;
     overflow: hidden;
-    background-color: #333;
+    /* background-color: #333; */
     float: right;
     padding: 10px 10px 10px 0;
   }
