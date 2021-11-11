@@ -401,6 +401,7 @@ main {
 	top: 0;
 	left: 0;
 	backdrop-filter: blur(9px);
+    
 }
 #login-form {
 	display: none;
