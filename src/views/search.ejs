@@ -1,0 +1,27 @@
+<%- include('partial/header'); -%>
+
+<div class="ghead">
+    <h1 style="text-align: left; margin: 2rem;"><%= hh %></h1>
+</div>
+
+<main id="main">
+ <% if(srch.sr.length!==0){ %>  
+    <% for(i=0;i < srch.sr.length;i++) { %>   
+        <div class="box_big box">
+            <a class="m_btn" href="/details/<%= srch.sr[i].id %>">
+            <span class="green"><%= srch.sr[i].vote_average %></span>
+            <img src= <%= "https://image.tmdb.org/t/p/w500"+ srch.sr[i].poster_path  %> alt="" class="image">
+            <div class="info">
+                <h3 class="title"><%= srch.sr[i].original_title %></h3>
+                
+            </div>
+            <div class="overview">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde voluptas nihil odio ad itaque voluptatibus quasi temporibus eos, harum quo animi ut! Et, odit nihil cumque possimus, inventore laborum quod nam quia totam incidunt, fugiat blanditiis voluptatibus dicta ipsam esse!
+            </div>
+           </a>
+        </div>
+        <% } }%>
+</main>
+
+
+<%- include('partial/footer'); -%>

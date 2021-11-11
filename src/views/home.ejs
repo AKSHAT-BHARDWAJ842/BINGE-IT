@@ -34,7 +34,7 @@
         
     <% for(i=0;i < 6;i++) { %>   
     <div class="box">
-        <a class="m_btn" href="">
+        <a class="m_btn" href="/details/<%= b_result[i].id %>">
         <span class="green"><%= b_result[i].vote_average %></span>
         <img src= <%= "https://image.tmdb.org/t/p/w500"+ b_result[i].poster_path  %> alt="" class="image">
         <div class="info">
@@ -59,7 +59,7 @@
         
     <% for(i=0;i < 6;i++) { %>   
     <div class="box">
-        <a class="m_btn" href="">
+        <a class="m_btn" href="/details/<%= h_result[i].id %>">
         <span class="green"><%= h_result[i].vote_average %></span>
         <img src= <%= "https://image.tmdb.org/t/p/w500"+ h_result[i].poster_path  %> alt="" class="image">
         <div class="info">
@@ -84,7 +84,7 @@
         
     <% for(i=0;i < 6;i++) { %>   
     <div class="box">
-        <a class="m_btn" href="">
+        <a class="m_btn" href="/details/<%= t_result[i].id %>">
         <span class="green"><%= t_result[i].vote_average %></span>
         <img src= <%= "https://image.tmdb.org/t/p/w500"+ t_result[i].poster_path  %> alt="" class="image">
         <div class="info">
@@ -109,7 +109,7 @@
         
     <% for(i=0;i < 6;i++) { %>   
     <div class="box">
-        <a class="m_btn" href="">
+        <a class="m_btn" href="/details/<%= an_result[i].id %>">
         <span class="green"><%= an_result[i].vote_average %></span>
         <img src= <%= "https://image.tmdb.org/t/p/w500"+ an_result[i].poster_path  %> alt="" class="image">
         <div class="info">
