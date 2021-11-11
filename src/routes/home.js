@@ -42,4 +42,10 @@ home.get("", async(req,res) =>{
     res.render("home",{p_result: mp,b_result: boll,t_result: thrill,a_result: act,an_result: animat,h_result:hor});
 })
 
+home.post("",async(req,res) =>{
+    var s_string=req.body.userSearch;
+    s_string.replace( '+', ' ' );
+    console.log(s_string);
+    res.redirect('/search/'+s_string);
+})
 module.exports = home;

@@ -9,25 +9,26 @@
 </head>
 <body>
     <nav>
-        <h1 class="logo">BINGE IT</h1>
+        <h1 class="logo"><a href="/">BINGE IT</a></h1>
         <div class="navbar">
             <div class="dropdown">
                 <button class="dropbtn">Categories</button>
                 <div class="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                    <a href="#">Link 4</a>
-                    <a href="#">Link 5</a>
-                    <a href="#">Link 6</a>
-                    <a href="#">Link 7</a>
+                    <a href="/genre/28/Action">Action</a>
+                    <a href="/genre/12/Adventure">Adventure</a>
+                    <a href="/genre/35/Comedy">Comedy</a>
+                    <a href="/genre/878/Science Fiction">Science Fiction</a>
+                    <a href="/genre/27/Horror">Horror</a>
+                    <a href="/genre/10751/Family">Family</a>
+                    <a href="/genre/16/Animation">Animation</a>
                   </div>
             </div>
-            <a href="#menu">MENU</a>
-            <a href="#watchlist">Watchlist</a>
-            <a href="#sign">Sign In/Sign Up</a>
-            <form id="form" action="">
-                <input type="text" placeholder="Search" class="search">
+            <a class="m_btn" href="#menu">MENU</a>
+            <a class="m_btn" href="#watchlist">Watchlist</a>
+            <a class="m_btn" href="#sign">Sign In/Sign Up</a>
+            <form id="form" method="post" action="/">
+                <input type="search" name="userSearch" id="" class="search" placeholder="Search" autocomplete="off">
+                <button type="submit" id="search-btn"><img src="/images/search.png" alt="" width="20px"></button>
             </form>
     </div>
     </nav>
