@@ -14,7 +14,7 @@ const action =BASE_URL+"/discover/movie?"+ API_KEY +"&with_genres=28";
 const anim =BASE_URL+"/discover/movie?"+ API_KEY +"&with_genres=16";
 const horror =BASE_URL+"/discover/movie?"+ API_KEY +"&with_genres=27";
 
-const variable="abcdefg";
+
 
 const app=express();
 

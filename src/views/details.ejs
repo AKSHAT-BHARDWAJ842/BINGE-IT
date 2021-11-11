@@ -6,6 +6,9 @@
     </div>
     <div class="details">
     <p id="titl"><%= results.mr.title %></p>
+    <p class="tagline"><%= results.mr.tagline %></p>
+    <p class="rel"><%= "Release : "+ results.mr.release_date %></p>
+    <p class="rt"><%= "Runtime : "+ results.mr.runtime %></p>
     <p class="sub_h">Overview</p>
     <p class="ovview"><%= results.mr.overview %></p>
     <p id="rate"><%= results.mr.vote_average %></p>
@@ -15,7 +18,7 @@
     <div class="crew">
         <p>Director : <%= results.cr.direct[0] %></p>
         <p>Producer :
-            <% for(i=0;i < 3;i++) { %>  
+            <% for(i=0;i < 3 && i< results.cr.producer.length ;i++) { %>  
             <%= results.cr.producer[i] %>,
             <% } %>
         </p>
@@ -26,12 +29,16 @@
             <% } %></p>
     </div>
 </div>
+<h3 class="sub_head">Cast</h3>
 <div class="cast">
- <img src="images/cast-1.jpg" alt="">
- <img src="images/cast-1.jpg" alt="">
- <img src="images/cast-1.jpg" alt="">
- <img src="images/cast-1.jpg" alt="">
- <img src="images/cast-1.jpg" alt="">
+  <% for(i=0 ;i< 7 ;i++) { %>
+   <div class="cast_box">
+      <div class="cstim_cont">
+      <img src= <%= "https://image.tmdb.org/t/p/w500"+ results.cr.castimg.prof[i] %> alt="" class="cst_img">
+      </div> 
+      <p class="cst_nm"><%= results.cr.castimg.name[i] %></p>
+   </div>
+  <% } %>
 </div>
 <div class="trailer">
  <img src=<%= "https://image.tmdb.org/t/p/w500"+results.mr.backdrop_path %> alt="" class="vid_bg" >

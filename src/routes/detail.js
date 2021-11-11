@@ -31,7 +31,12 @@ function cstCall(url) {
             try { var r={
                    direct: [],
                    producer: [],
-                   cast : []
+                   cast : [],
+                   castimg :{
+                       prof: [],
+                       name: []
+
+                   }
                 }
                   var d=JSON.parse(body);
                   d.crew.forEach(element => {
@@ -43,12 +48,18 @@ function cstCall(url) {
                       {
                          r.producer.push(element.name)
                       }
+
                   });
+                  for(var i=0;i<10;i++)
+                  {
+                      r.castimg.prof.push(d.cast[i].profile_path);
+                      r.castimg.name.push(d.cast[i].name);
+                  }
                   for(var i=0;i<6;i++)
                   {
                       r.cast.push(d.cast[i].name);
                   }
-                //   console.log(r);
+                  
                 return callback(null, r);
                 //JSON.parse(body)
             } catch (error) {

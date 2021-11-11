@@ -93,11 +93,14 @@ color: white;
   }
   
   .dropdown-content a:hover {
-    background-color: #202020;
-    text-decoration: underline #13fff1;
+    background-color: #000000c7;
+    font-size: 120%;
+    /* text-decoration: underline #13fff1; */
     /* box-shadow: 0 8px 16px 0px #13fff1; */
   }
-
+.dropdown-content a:hover .dropdown-content a{
+	background-color: #000000c7;
+}
 .navbar a {
 	
 	font-size: 16px;
@@ -329,14 +332,25 @@ main {
 }
 .sub_h {
 	font-size: 2rem;
-	margin-top: 1rem;
+	margin-top: 0.5rem;
 	margin-bottom: 0.3rem;
+}
+.rt ,.rel{
+	margin: 10px 5px;
+}
+.tagline{
+	/* float: right; */
+	/* text-align: right; */
+	all: none;
+	max-width: 250px;
+	margin: 1px 0 15px 5px;
 }
 .ovview {
 	margin: 0;
 }
 #rate {
 	font-size: 2.5rem;
+	margin-top: 0.7rem;
 }
 .otdet {
 	margin: 2rem 0rem;
@@ -350,8 +364,25 @@ main {
 }
 .cast img {
 	width: 120px;
+	transform: translateY(-10px);
+	/* margin: 2rem; */
+	/* border-radius: 5%; */
+}
+.cast_box{
+	width: 8%;
 	margin: 2rem;
-	border-radius: 5%;
+	text-align: center;
+}
+
+.cstim_cont{
+   border-radius: 50%;
+   height: 120px;
+   width: 120px;
+   overflow: hidden;
+}
+.cst_nm{
+	color:white;
+	padding-left: 10px;
 }
 
 /* genre */
@@ -375,9 +406,21 @@ main {
 
 /* footer */
 .footer{
-    height: 150px;
-    margin-top: 2rem;
+    height: 100px;
+    
     background-color: #000000b0;
+	z-index: 1;
+}
+.footer p{
+	position: absolute;
+	left: 45%;
+	margin-top: 70px;
+	color: white;
+}
+.dischub, .dischub h1{
+	text-align: center;
+	margin-top: 2rem;
+	margin-bottom: 0.1rem;
 }
 /* signup/signin */
 .signbutton {
