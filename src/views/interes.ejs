@@ -1,0 +1,17 @@
+<%- include('partial/header'); -%>
+
+<h1>Add your interests</h1>
+<form action="/discussion" method="post">
+    <input type="checkbox" id="Thrill" value="Thriller">
+    <label for="Thrill">THRILLER</label><br>
+    <input type="checkbox" id="com" value="Comedy">
+    <label for="com">COMEDY</label><br>
+    <input type="checkbox" id="act" value="Action">
+    <label for="act">ACTION</label><br>
+    <input type="checkbox" id="adv" value="Adventure">
+    <label for="adv">ADVENTURE</label><br>
+    <input type="checkbox" id="hor" value="Horror">
+    <label for="hor">HORROR</label><br>
+    <button type="submit">Submit</button>
+</form>
+<%- include('partial/footer'); -%>

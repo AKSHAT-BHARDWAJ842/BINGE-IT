@@ -1,31 +1,34 @@
 <%- include('partial/header'); -%>
 
 <div class="box1">
+    
     <div class="img_box">
-    <img src=<%= "https://image.tmdb.org/t/p/w500"+ results.mr.poster_path  %> alt="">
+    <img src=<%= "https://image.tmdb.org/t/p/w500"+ locals.results?.mr?.poster_path  %> alt="">
     </div>
     <div class="details">
-    <p id="titl"><%= results.mr.title %></p>
-    <p class="tagline"><%= results.mr.tagline %></p>
-    <p class="rel"><%= "Release : "+ results.mr.release_date %></p>
-    <p class="rt"><%= "Runtime : "+ results.mr.runtime %></p>
+    <p id="titl"><%= locals.results?.mr?.title %></p>
+    <p class="tagline"><%= locals.results?.mr?.tagline %></p>
+    <p class="rel"><%= "Release : "+ locals.results?.mr?.release_date %></p>
+    <p class="rt"><%= "Runtime : "+ locals.results?.mr?.runtime %></p>
     <p class="sub_h">Overview</p>
-    <p class="ovview"><%= results.mr.overview %></p>
-    <p id="rate"><%= results.mr.vote_average %></p>
+    <p class="ovview"><%= locals.results?.mr?.overview %></p>
+    <p id="rate"><%= locals.results?.mr?.vote_average %></p>
     </div>
 </div> 
 <div class="otdet">
     <div class="crew">
-        <p>Director : <%= results.cr.direct[0] %></p>
+        <% if(results.cr) { %>
+        <p>Director : <%=  locals.results?.cr?.direct[0]  %></p>
+        <% } %>
         <p>Producer :
-            <% for(i=0;i < 3 && i< results.cr.producer.length ;i++) { %>  
-            <%= results.cr.producer[i] %>,
+            <% for(i=0;i < 3 && i< locals.results?.cr?.producer?.length ;i++) { %>  
+            <%= locals.results?.cr?.producer[i] %>,
             <% } %>
         </p>
         
         <p>Star Cast : 
-            <% for(i=0;i < 5;i++) { %>  
-            <%= results.cr.cast[i] %>,
+            <% for(i=0;i < 7 && i< locals.results?.cr?.cast?.length ;i++) { %>  
+            <%= locals.results?.cr?.cast[i] %>,
             <% } %></p>
     </div>
 </div>
@@ -34,15 +37,15 @@
   <% for(i=0 ;i< 7 ;i++) { %>
    <div class="cast_box">
       <div class="cstim_cont">
-      <img src= <%= "https://image.tmdb.org/t/p/w500"+ results.cr.castimg.prof[i] %> alt="" class="cst_img">
+      <img src= <%= "https://image.tmdb.org/t/p/w500"+ results?.cr?.castimg.prof[i] %> alt="" class="cst_img">
       </div> 
-      <p class="cst_nm"><%= results.cr.castimg.name[i] %></p>
+      <p class="cst_nm"><%= results?.cr?.castimg?.name[i] %></p>
    </div>
   <% } %>
 </div>
 <div class="trailer">
- <img src=<%= "https://image.tmdb.org/t/p/w500"+results.mr.backdrop_path %> alt="" class="vid_bg" >
- <iframe width="80%" height="420px" src=<%= "https://www.youtube.com/embed/"+ results.vr %> title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+ <img src=<%= "https://image.tmdb.org/t/p/w500"+results?.mr?.backdrop_path %> alt="" class="vid_bg" >
+ <iframe width="80%" height="420px" src=<%= "https://www.youtube.com/embed/"+ results?.vr %> title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 
