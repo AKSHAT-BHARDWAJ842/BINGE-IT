@@ -1,6 +1,7 @@
 const express=require("express");
 const request=require("request");
 const home=express.Router();
+const mongoose=require('mongoose');
 
 // api key : 8f520d48e32f1c66bbb9e17300dc5258
 const API_KEY= "api_key=8f520d48e32f1c66bbb9e17300dc5258";
@@ -11,6 +12,8 @@ const thriller =BASE_URL+"/discover/movie?"+ API_KEY+ "&with_genres=53";
 const action =BASE_URL+"/discover/movie?"+ API_KEY +"&with_genres=28";
 const anim =BASE_URL+"/discover/movie?"+ API_KEY +"&with_genres=16";
 const horror =BASE_URL+"/discover/movie?"+ API_KEY +"&with_genres=27";
+
+ 
 
 request(popular,function(error,response,body){
     var data=JSON.parse(body);
@@ -37,9 +40,14 @@ request(anim,function(error,response,body){
     animat=data.results;
 });
 
+var auth=false;
 
 home.get("", async(req,res) =>{
-    res.render("home",{p_result: mp,b_result: boll,t_result: thrill,a_result: act,an_result: animat,h_result:hor});
+    if(req.isAuthenticated()){
+        auth=true;
+        req.db
+    }
+    res.render("home",{p_result: mp,b_result: boll,t_result: thrill,a_result: act,an_result: animat,h_result:hor,aut:auth});
 })
 
 home.post("",async(req,res) =>{

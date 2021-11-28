@@ -14,6 +14,8 @@ function apiCall(url) {
             }
 
             try {
+                var d=JSON.parse(body);
+                // console.log(d);
                 return callback(null, JSON.parse(body));
             } catch (error) {
                 return callback(error);
@@ -21,10 +23,11 @@ function apiCall(url) {
         });
     };
 }  
-function cstCall(url) {
-    return function(callback) {
+ function cstCall(url) {
+    return  function(callback) {
         request(url, function(error, response, body) {
             if (error || response.statusCode != 200) {
+                console.log("error-30");
                 return callback(error);
             }
             
@@ -41,7 +44,8 @@ function cstCall(url) {
                   var d=JSON.parse(body);
                   d.crew.forEach(element => {
                       if(element.job=='Director')
-                      {
+                      {  
+                        //   console.log(element);
                          r.direct.push(element.name)
                       }
                       if(element.job=='Producer')
@@ -50,25 +54,25 @@ function cstCall(url) {
                       }
 
                   });
-                  for(var i=0;i<10;i++)
-                  {
+                  for(var i=0;i<7;i++)
+                  {   if(d.cast[i])
+                    {
                       r.castimg.prof.push(d.cast[i].profile_path);
                       r.castimg.name.push(d.cast[i].name);
+                    }
                   }
-                  for(var i=0;i<6;i++)
-                  {
-                      r.cast.push(d.cast[i].name);
-                  }
+                  
                   
                 return callback(null, r);
                 //JSON.parse(body)
             } catch (error) {
+                // console.log("error-66");
                 return callback(error);
             }
         });
     };
 }  
-function vidCall(url) {
+ function vidCall(url) {
     return function(callback) {
         request(url, function(error, response, body) {
             try { var link;
@@ -97,12 +101,12 @@ detail.get("/:id",function(req,res){
      var cst_url=BASE_URL+`/movie/${id}/credits?`+API_KEY+`&language=en-US`;
      var v_url=BASE_URL+`/movie/${id}/videos?`+API_KEY+`&language=en-US`;
   async.parallel({
-      mr: apiCall(movie_url),
-      cr: cstCall(cst_url),
-      vr: vidCall(v_url)
+      mr:  apiCall(movie_url),
+      cr:  cstCall(cst_url),
+      vr:  vidCall(v_url)
   }, function(err, results) {
       if (err) console.log(err);
-      // console.log(results);
+      console.log(results);
       res.render("details", {results:results});
   });
   
