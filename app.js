@@ -61,9 +61,10 @@ passport.serializeUser(function(user, done) {
   });
 
 const interestSchema=new mongoose.Schema({
-  user: userSchema,
+  user: String,
   interest: []
 });
+const Interest=mongoose.model("interest",interestSchema);
 const postSchema=new mongoose.Schema({
     text: String,
     user: userSchema
@@ -117,15 +118,19 @@ app.use("/search",search);
 
 const groups=["Most Popular","Bollywood","Horror","Thriller","Action","Sci-fi","Comedy","Romance"];
 
-
+var user_in;
 app.get("/discussion",function(req,res){
     if(req.isAuthenticated()){
-        
+       
+       console.log("curr_user="+user_in);
         Portal.find({},function(err,cont){
             if(!err)
-            {   
+            {  
+                 Interest.find({user: user_in},function(err,u_int){
+                     console.log(u_int);
+                     res.render("discussion",{content: cont,cu_int:u_int, aut: true});
+                 })
                 // console.log(cont);
-                res.render("discussion",{content: cont,aut: true});
             } 
             else {
                 res.redirect("/")
@@ -133,12 +138,20 @@ app.get("/discussion",function(req,res){
         }) 
     }
     else{
-        res.render("discussion",{auth: false});
+        res.render("discussion",{aut: false});
     }
 });
 app.post("/discussion",function(req,res){
-    // make new interest collection and add content then redirect to discussion
-    res.redirect("/discussion");
+    // User.find({username: req.body.username},function(err,c_user){
+
+        const interest1=new Interest({
+            user: req.body.username,
+            interest: req.body.intr
+        }); 
+        interest1.save();
+    
+    // console.log(interest1.user);
+    res.redirect("/discussion?c_user="+interest1.user);
 })
 app.post("/register",function(req,res){
     
@@ -146,10 +159,16 @@ app.post("/register",function(req,res){
         if(err){console.log(err)
         res.redirect("/")}
         else{
-            console.log(user)
+            // console.log(user);
+
             passport.authenticate("local")(req,res,function(){
                 console.log("authenticated");
-                res.render("interes");
+                // req.app.set('curr_user', res.req.user)
+                var cur_user=res.req.user;
+                user_in=user.username;
+
+                // console.log(req.app.get('curr_user').username);
+                res.render("interes",{user:user.username});
             })
         }
     })
@@ -166,6 +185,7 @@ app.post("/login",function(req,res){
         {   console.log("r1");
             passport.authenticate("local")(req,res,function(){
                 console.log("auth");
+                user_in=user.username;
                 res.redirect("/"); 
             })
         }

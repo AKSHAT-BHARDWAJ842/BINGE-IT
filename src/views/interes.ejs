@@ -2,16 +2,21 @@
 
 <h1>Add your interests</h1>
 <form action="/discussion" method="post">
-    <input type="checkbox" id="Thrill" value="Thriller">
-    <label for="Thrill">THRILLER</label><br>
-    <input type="checkbox" id="com" value="Comedy">
+    <input type="checkbox" id="thrill" name="intr" value="Thriller">
+    <label for="thrill">THRILLER</label><br>
+    <input type="checkbox" id="com" name="intr" value="Comedy">
     <label for="com">COMEDY</label><br>
-    <input type="checkbox" id="act" value="Action">
+    <input type="checkbox" id="act" name="intr" value="Action">
     <label for="act">ACTION</label><br>
-    <input type="checkbox" id="adv" value="Adventure">
+    <input type="checkbox" id="adv" name="intr" value="Adventure">
     <label for="adv">ADVENTURE</label><br>
-    <input type="checkbox" id="hor" value="Horror">
+    <input type="checkbox" id="hor" name="intr" value="Horror">
     <label for="hor">HORROR</label><br>
+    <input type="checkbox" id="fam" name="intr" value="Family">
+    <label for="hor">FAMILY</label><br>
+    <input type="checkbox" id="anim" name="intr" value="Animation">
+    <label for="hor">ANIMATION</label><br>
+    <input type="hidden" name="username" value=<%= user %> >
     <button type="submit">Submit</button>
 </form>
 <%- include('partial/footer'); -%>

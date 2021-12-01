@@ -2,14 +2,18 @@
 <% if(aut==true){ %> 
 <div>
     <h1 style="text-align: center; color: white;">discussion portal</h1>
-    <% content.forEach(gen=>{ %>
+    <% content.forEach(gen=>{ %> -->
+       <% if(cu_int[0].interest.includes(gen.genres)){ %>
         <h1 style="color: white;"><%= gen.genres %></h1>
-        <ul>
+        <ul> -->
         <% gen.post.forEach(pst =>{ %>
-            <li style="color: white;"><%= pst.user?.username %> : <%= pst.text %></li>
+            <% console.log(pst) %>
+            <li style="color: white;"><%= pst.user.username %> : <%= pst.text %></li>
         <% }); %>
         </ul>
-    <% }); %>
+        
+    <% } }); %>
+
 </div>
 <% } %>
 
