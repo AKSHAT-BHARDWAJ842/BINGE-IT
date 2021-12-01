@@ -9,16 +9,12 @@
 </head>
 <body>
     <div class="full-page">
-        <div class="navbar">
+        <!-- <div class="navbar">
             <div>
                 <a href='website.html'>Appify</a>
             </div>
             <nav>
                 <ul id='MenuItems'>
-                    <li><a href='#'>Home</a></li>
-                    <li><a href='#'>About Us</a></li>
-                    <li><a href='#'>Services</a></li>
-                    <li><a href='#'>Contact</a></li>
                     <li><button class='loginbtn' onclick="document.getElementById('login-form').style.display='block'" style="width:auto;">Login</button></li>
                 </ul>
             </nav>
@@ -42,13 +38,68 @@
 		     <input type='email'class='input-field'placeholder='Email Id' required>
 		     <input type='password'class='input-field'placeholder='Enter Password' required>
 		     <input type='password'class='input-field'placeholder='Confirm Password'  required>
-		     <input type='checkbox'class='check-box'><span>I agree to the terms and                                                   conditions</span>
+		     <input type='checkbox'class='check-box'><span>I agree to the terms and conditions</span>
                     <button type='submit'class='submit-btn'>Register</button>
 	         </form>
             </div>
+        </div> -->
+
+        <div class="discuss_box">
+            <div class="line_db"></div>
+            <div class="genre_container_db">
+                <input type="button" class="genre_item_db" onclick="selected_genre(this)" style="background-color: #13fff1;" value="Action">
+                <input type="button" class="genre_item_db" onclick="selected_genre(this)" value="Comedy">
+                <input type="button" class="genre_item_db" onclick="selected_genre(this)" value="Horror">
+                <input type="button" class="genre_item_db" onclick="selected_genre(this)" value="Adventure">
+                <input type="button" class="genre_item_db" onclick="selected_genre(this)" value="Family">
+            </div>
+            <div id='displaytext' class="headingtext">Action</div>
+            <div class="db_box">
+                <div class="message_container">
+                    <div class="sender_name">Akshat Bhardwaj</div>
+                    <div class="message_box">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun ut labore et dolore magna aliq
+                    </div>
+                    <div class="sender_date_time">Yesterday, 20:48</div>
+                </div>
+                <div class="message_container">
+                    <div class="sender_name">Akshat Bhardwaj</div>
+                    <div class="message_box">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusm😂😂😂
+                    </div>
+                    <div class="sender_date_time">Yesterday, 20:48</div>
+                </div>
+                <div class="message_container_you">
+                    <div class="sender_name">You</div>
+                    <div class="message_box_you">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 🤔🤔😂
+                    </div>
+                    <div class="sender_date_time">Yesterday, 20:48</div>
+                </div>
+                
+            </div>
+            <form action="">
+                <input class="input_db" type="text" placeholder="Type a message" >
+                <button class="sendbutton" value=""><img src="public/images/output-onlinepngtools (3).png" width="90%" height="90%" style="position: relative; padding: 0; margin: 0;"></button>
+            </form>
+            
         </div>
     </div>
     <script>
+        var x;
+        var k=document.getElementById('displaytext');
+        var r=document.getElementsByClassName('genre_item_db');
+        var toggle =false;
+        function selected_genre(x){
+            k.textContent=x.value;
+            for(var i=0;i<r.length;i++){
+                r[i].style.backgroundColor="white";
+            }
+            x.style.backgroundColor='#13fff1';
+            
+        }
+    </script>
+    <!-- <script>
         var x=document.getElementById('login');
 		var y=document.getElementById('register');
 		var z=document.getElementById('btn');
@@ -74,6 +125,6 @@
                 modal.style.display = "none";
             }
         }
-    </script>
+    </script> -->
 </body>
 </html>
