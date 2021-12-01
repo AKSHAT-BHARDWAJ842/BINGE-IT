@@ -81,10 +81,10 @@ const portalSchema=new mongoose.Schema({
 });
 const Portal=mongoose.model("portal", portalSchema);
 const portal1=new Portal({
-    genres: "Thriller"
+    genres: "Horror"
 })
 const portal2=new Portal({
-    genres: "Comedy"
+    genres: "Family"
 })
 const def=[portal1,portal2];
 // to gen initial Potals on ur sysytem
@@ -114,32 +114,51 @@ app.use("/details",detail);
 const genre=require('./src/routes/genre');
 app.use("/genre",genre);
 const search=require('./src/routes/search');
+const { deserializeUser } = require("passport");
 app.use("/search",search);
 
 const groups=["Most Popular","Bollywood","Horror","Thriller","Action","Sci-fi","Comedy","Romance"];
 
 var user_in;
+var curr_gen;
 app.get("/discussion",function(req,res){
     if(req.isAuthenticated()){
+      
        
        console.log("curr_user="+user_in);
-        Portal.find({},function(err,cont){
-            if(!err)
-            {  
-                 Interest.find({user: user_in},function(err,u_int){
-                     console.log(u_int);
-                     res.render("discussion",{content: cont,cu_int:u_int, aut: true});
-                 })
-                // console.log(cont);
-            } 
-            else {
-                res.redirect("/")
-            }
-        }) 
+       Interest.find({user: user_in.username},function(err,u_int){
+           console.log(u_int);
+           Portal.find({},function(err,cont){
+               if(!err)
+               {   console.log("content" +cont);
+                   if (typeof curr_gen == 'undefined')
+               {  curr_gen=cont[0].genres;
+                console.log(curr_gen);
+               }
+                   res.render("discussion",{content:cont,cu_int:u_int,curr_gen:curr_gen,aut: true});
+               }
+           })
+       })
     }
     else{
         res.render("discussion",{aut: false});
     }
+
+        // Portal.find({},function(err,cont){
+        //     if(!err)
+        //     {  
+        //          Interest.find({user: user_in.username},function(err,u_int){
+        //              console.log(u_int);
+        //              res.render("discussion",{content: cont[0],cu_int:u_int,c_pg: u_int.interest[0],aut: true});
+        //          })
+        //         // console.log(cont);
+        //     } 
+        //     else {
+        //         res.redirect("/")
+        //     }
+        // }) 
+    // }
+    
 });
 app.post("/discussion",function(req,res){
     // User.find({username: req.body.username},function(err,c_user){
@@ -150,9 +169,40 @@ app.post("/discussion",function(req,res){
         }); 
         interest1.save();
     
-    // console.log(interest1.user);
-    res.redirect("/discussion?c_user="+interest1.user);
+    
+    res.redirect("/discussion");
 })
+app.post("/genre",function(req,res){
+    curr_gen= req.body.c_gen;
+    // console.log("cg changed to "+ curr_gen);
+    res.redirect("/discussion")
+
+})
+app.post("/pst",function(req,res){
+    const newPost = req.body.nPost;
+
+    const postNew = new Post({
+        text: newPost,
+        user: user_in
+    });
+    postNew.save();
+
+    Portal.findOne({genres:req.body.gen},function(err,genport){
+        if(err){
+            console.log(err)
+        }
+        else{
+            console.log(genport.genres);
+            console.log(postNew);
+            genport.post.push(postNew);
+            genport.save();
+        }
+    })
+    
+    
+    res.redirect("/discussion");
+})
+
 app.post("/register",function(req,res){
     
     User.register({username: req.body.username}, req.body.password,function(err,user){
@@ -164,8 +214,8 @@ app.post("/register",function(req,res){
             passport.authenticate("local")(req,res,function(){
                 console.log("authenticated");
                 // req.app.set('curr_user', res.req.user)
-                var cur_user=res.req.user;
-                user_in=user.username;
+                // var cur_user=res.req.user;
+                user_in=user;
 
                 // console.log(req.app.get('curr_user').username);
                 res.render("interes",{user:user.username});
@@ -185,7 +235,7 @@ app.post("/login",function(req,res){
         {   console.log("r1");
             passport.authenticate("local")(req,res,function(){
                 console.log("auth");
-                user_in=user.username;
+                user_in=user;
                 res.redirect("/"); 
             })
         }
