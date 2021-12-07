@@ -125,15 +125,13 @@ app.get("/discussion",function(req,res){
     if(req.isAuthenticated()){
       
        
-       console.log("curr_user="+user_in);
        Interest.find({user: user_in.username},function(err,u_int){
-           console.log(u_int);
            Portal.find({},function(err,cont){
                if(!err)
-               {   console.log("content" +cont);
+               {  
                    if (typeof curr_gen == 'undefined')
                {  curr_gen=cont[0].genres;
-                console.log(curr_gen);
+                
                }
                    res.render("discussion",{content:cont,cu_int:u_int,curr_gen:curr_gen,aut: true});
                }

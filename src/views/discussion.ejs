@@ -7,14 +7,16 @@
                 <button type="submit" name="c_gen" value=<%= int %> ><%= int %></button>
             <% }) %>
         </form>
+        <div class="chatarea">
           <% content.forEach(cont=>{ %>
              <%  if(cont.genres==curr_gen){ %>
                    <h1><%= cont.genres %></h1>
                <div>
                  <%  cont.post.forEach(pst=>{ %>
-                       <li><%= pst.text %></li>
+                   <li> <p><%= pst.user.username %> : <%= pst.text %></p></li>
                  <%  }) %>
                </div>
+        </div>       
                <form class="item" action="/pst" method="post">
                    <input type="text" name="nPost" placeholder="New Post" autocomplete="off">
                    <input type="hidden" name="gen" value=<%= curr_gen %> >
@@ -23,6 +25,7 @@
            <% }  %>
         
        <% }) %>
+    
 
 </div>
 <% } %>

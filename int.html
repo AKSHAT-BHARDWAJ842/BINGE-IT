@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/public/css/styles.css">
+</head>
+<body>
+    <h1 class="hd">Add Your Interests</h1>
+    <div class="pg">
+<form  action="/discussion" method="post">
+    <div class="int_frm">
+    <input class="chk" type="checkbox" id="thrill" name="intr" value="Thriller" >
+    <label class="int_btn" for="thrill" onclick="chngclr(this)">THRILLER</label>
+    <input class="chk" type="checkbox" id="com" name="intr" value="Comedy">
+    <label class="int_btn" for="com" onclick="chngclr(this)">COMEDY</label>
+    <input class="chk" type="checkbox" id="act" name="intr" value="Action">
+    <label class="int_btn" for="act" onclick="chngclr(this)">ACTION</label>
+    <input class="chk" type="checkbox" id="adv" name="intr" value="Adventure">
+    <label class="int_btn" for="adv" onclick="chngclr(this)" >ADVENTURE</label>
+    <input class="chk" type="checkbox" id="hor" name="intr" value="Horror">
+    <label class="int_btn" for="hor" onclick="chngclr(this)" >HORROR</label>
+    <input class="chk" type="checkbox" id="fam" name="intr" value="Family">
+    <label class="int_btn" for="fam" onclick="chngclr(this)">FAMILY</label>
+    <input class="chk" type="checkbox" id="anim" name="intr" value="Animation">
+    <label class="int_btn" for="anim" onclick="chngclr(this)">ANIMATION</label>
+</div>
+    <input type="hidden" name="username" value=<%= user %> >
+    <button id="sb" type="submit">SUBMIT</button>
+</form>
+<div class="icn">
+    <img src="/public/images/1876-cinema.gif" width="400px" alt="">
+</div>
+</div>
+<script>
+  function chngclr(x)
+  { if(x.classList.contains('int_btn'))
+  {
+     x.classList.add("int_btn_clk");
+     x.classList.remove('int_btn');
+  }
+  else{
+    x.classList.add("int_btn");
+     x.classList.remove('int_btn_clk');
+  } 
+  }
+</script>
+</body>
+</html>

@@ -34,7 +34,7 @@ function apiCall(url) {
             try { var r={
                    direct: [],
                    producer: [],
-                   cast : [],
+                   writ : [],
                    castimg :{
                        prof: [],
                        name: []
@@ -51,6 +51,10 @@ function apiCall(url) {
                       if(element.job=='Producer')
                       {
                          r.producer.push(element.name)
+                      }
+                      if(element.job=='Story')
+                      {
+                         r.writ.push(element.name)
                       }
 
                   });
