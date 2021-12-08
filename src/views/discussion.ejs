@@ -1,26 +1,37 @@
 <%- include('partial/header'); -%>
 <% if(aut==true){ %> 
-<div style="background-color: beige;">
-    <h1 style="text-align: center; color: white;">discussion portal</h1>
+<div class="discuss_box">
+    
       <form action="/genre" method="post">
-            <% cu_int[0].interest.forEach(int=>{ %> 
-                <button type="submit" name="c_gen" value=<%= int %> ><%= int %></button>
+          <div class="genre_container_db">
+              <% cu_int[0].interest.forEach(int=>{ %> 
+                <button class="genre_item_db" type="submit" name="c_gen" value=<%= int %> ><%= int %></button>
             <% }) %>
+          </div>
+            
         </form>
-        <div class="chatarea">
+        <div class="">
           <% content.forEach(cont=>{ %>
              <%  if(cont.genres==curr_gen){ %>
-                   <h1><%= cont.genres %></h1>
-               <div>
+                   <div class="headingtext"><%= cont.genres %></div>
+                   <div class="line_db"></div>
+               <div class="db_box">
                  <%  cont.post.forEach(pst=>{ %>
-                   <li> <p><%= pst.user.username %> : <%= pst.text %></p></li>
+                    <div class="message_container">
+                    <div class="sender_name"><%= pst.user.username.substring(0,pst.user.username.indexOf('@')) %></div>
+                    <div class="message_box">
+                        <%= pst.text %>
+                    </div>
+                    <!-- <div class="sender_date_time">Yesterday, 20:48</div> -->
+                </div>
+                   
                  <%  }) %>
                </div>
         </div>       
-               <form class="item" action="/pst" method="post">
-                   <input type="text" name="nPost" placeholder="New Post" autocomplete="off">
-                   <input type="hidden" name="gen" value=<%= curr_gen %> >
-                   <button type="submit" name="np" value="<%=  %>">POST</button>
+               <form  action="/pst" class="messagebar" method="post">
+                   <input type="text" name="nPost" placeholder="New Post" autocomplete="off" class="input_db">
+                   <input type="hidden"  class="sendbutton" name="gen" value=<%= curr_gen %> >
+                   <button type="submit" class="sendbutton" name="np" value="<%=  %>"><img src="/images/output-onlinepngtools (3).png" width="100%" height="100%" style="position: relative; padding: 0; margin-left: 1px;"></button>
                </form>
            <% }  %>
         
@@ -28,6 +39,9 @@
     
 
 </div>
+
+
+
 <% } %>
 
 <%- include('partial/footer'); -%>
