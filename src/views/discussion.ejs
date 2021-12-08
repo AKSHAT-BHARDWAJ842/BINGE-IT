@@ -7,7 +7,7 @@
                 <button type="submit" name="c_gen" value=<%= int %> ><%= int %></button>
             <% }) %>
         </form>
-        <div class="chatarea">
+        <div id="chtar" class="chatarea">
           <% content.forEach(cont=>{ %>
              <%  if(cont.genres==curr_gen){ %>
                    <h1><%= cont.genres %></h1>
@@ -29,5 +29,12 @@
 
 </div>
 <% } %>
-
+<script>
+  const cht=document.getElementById('chtar');
+function scrollbtm(area)
+{
+  area.scrollTop=area.scrollHeight;
+}
+scrollbtm(cht);
+</script>
 <%- include('partial/footer'); -%>

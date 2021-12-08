@@ -67,19 +67,23 @@ color: white;
     margin: 0;
   }
   
-  .m_btn:hover, .dropdown:hover .dropbtn {
+  .nav_btn:hover, .dropdown:hover .dropbtn {
     background-color: #202020;
     border-radius: 15px;
   }
-  
+ 
+
   .dropdown-content {
-    display: none;
+    /* display: none; */
+	visibility:hidden;
+	opacity: 0;
     position: absolute;
     background-color: #202020;
     min-width: 300px;
-    left: 45%;
+    left: 44%;
     /* box-shadow: 0px 8px 16px 0px #13fff1; */
     z-index: 1;
+	transition: visibility 0s,opacity 0.4s ;
   }
   
   .dropdown-content a {
@@ -108,10 +112,10 @@ color: white;
 	text-decoration: none;
 }
 
-.dropdown {
+/* .dropdown {
 	float: right;
 	overflow: hidden;
-}
+} */
 
 .dropdown .dropbtn {
 	font-size: 16px;
@@ -122,13 +126,14 @@ color: white;
 	background-color: inherit;
 	font-family: inherit;
 	margin: 0;
+	transition: ease-in 0.1s;
 }
 
-/* .m_btn:hover {
-	background-color: #202020;
-} */
 .dropdown:hover .dropdown-content {
-    display: block;
+    /* display: block; */
+	visibility: visible;
+	opacity: 1;
+	
   }
 
 #form{
@@ -184,6 +189,10 @@ color: white;
     background-color: #000000b0;
     border: #000000b0;
 } */
+
+
+
+/* main page */
 .ribbon {
 	display: flex;
 	justify-content: space-between;
@@ -428,15 +437,17 @@ main {
 	border: none;
 	outline: none;
 	color: white;
-	padding: 14px 16px;
+	padding: 0px 25px;
 	background-color: inherit;
 	font-family: inherit;
-	margin: 0;
+	margin: 0px 5px;
+	border-radius: 20px;
 	
 }
 .signbutton:hover {
     
 	background-color: #202020;
+	border-radius: 20px;
 }
 .login-page {
 	width: 100%;
