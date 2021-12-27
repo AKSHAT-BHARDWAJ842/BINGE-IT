@@ -167,8 +167,8 @@ span {
 	/* display: flexbox; */
 	position: absolute;
 	width: 100%;
-	height: 95%;
-	top: 92px;
+	height: 83%;
+	top: 105px;
 
 	background: #000000;
 	border-radius: 30px 30px 0px 0px;
@@ -178,7 +178,7 @@ span {
 	width: 10%;
 	height: 0%;
 	left: 45%;
-	top: -20px;
+	top: -5px;
 	background: #13fff1;
 	border: 3px solid #13fff1;
 	border-radius: 30px;
@@ -208,23 +208,27 @@ span {
 	/* color: black; */
 }
 .db_box {
+	display: flex;
+	direction: column;
+	flex-wrap: wrap;
 	position: absolute;
 	padding: 2% 3%;
 	margin: 0 2%;
 	width: 96%;
-	height: 60%;
-	top: 100;
+	height: 45%;
+	top: 200px;
 	left: 0;
 	background: #202020;
-	border-radius: 30px 30px 5px 5px;
+	border-radius: 5px;
+	overflow-y: scroll;
 }
-.message_container{
+.message_container {
 	/* position: absolute; */
 	width: max-content;
 	max-width: 600px;
 	/* float: right; */
 	margin-bottom: 1%;
-	
+	margin-right: 30%;
 }
 .message_box {
 	display: flex;
@@ -241,13 +245,13 @@ span {
 	border-radius: 10px;
 	/* height: 20px; */
 }
-.sender_name{
+.sender_name {
 	position: relative;
 	top: -2px;
 	left: 1%;
 	color: #d1d1d1;
 }
-.sender_date_time{
+.sender_date_time {
 	position: relative;
 	bottom: -2px;
 	max-width: 600px;
@@ -283,7 +287,7 @@ span {
 .input_db:focus {
 	outline: none;
 }
-.sendbutton{
+.sendbutton {
 	display: flex;
 	position: absolute;
 	bottom: 2%;
@@ -301,13 +305,12 @@ span {
 	font-size: 18px;
 	cursor: pointer;
 }
-.message_container_you{
+.message_container_you {
 	/* position: absolute; */
 	width: max-content;
 	max-width: 600px;
-	float: right;
+	margin-left: 60%;
 	margin-bottom: 0.5%;
-	
 }
 .message_box_you {
 	display: flex;
@@ -323,4 +326,18 @@ span {
 	padding: 2% 2%;
 	border-radius: 10px;
 	/* height: 20px; */
+}
+::-webkit-scrollbar{
+	width: 10px;
+}
+::-webkit-scrollbar-track{
+	border-radius: 5px;
+	background-color: #202020;
+}
+::-webkit-scrollbar-thumb{
+	background-color: #17e4d6;
+	border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover{
+	border-radius: 0px;
 }
