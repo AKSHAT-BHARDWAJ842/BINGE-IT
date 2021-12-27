@@ -67,6 +67,7 @@ const interestSchema=new mongoose.Schema({
 const Interest=mongoose.model("interest",interestSchema);
 const postSchema=new mongoose.Schema({
     text: String,
+    dt: String,
     user: userSchema
 });
 const Post=mongoose.model("post", postSchema);
@@ -81,12 +82,12 @@ const portalSchema=new mongoose.Schema({
 });
 const Portal=mongoose.model("portal", portalSchema);
 const portal1=new Portal({
-    genres: "Horror"
+    genres: "Animation"
 })
 const portal2=new Portal({
     genres: "Family"
 })
-const def=[portal1,portal2];
+const def=[portal1];
 // to gen initial Potals on ur sysytem
 // Portal.insertMany(def,function(err){
 //     if(!err)
@@ -95,6 +96,7 @@ const def=[portal1,portal2];
 //     }
     
 // });
+
 // Portal.findOne({genres:"Comedy"},function(err,genport){
 //     if(err){
 //         console.log(err)
@@ -172,15 +174,17 @@ app.post("/discussion",function(req,res){
 })
 app.post("/genre",function(req,res){
     curr_gen= req.body.c_gen;
-    // console.log("cg changed to "+ curr_gen);
     res.redirect("/discussion")
 
 })
 app.post("/pst",function(req,res){
     const newPost = req.body.nPost;
-
+    const date=new Date();
+    const [month, day, year,hr,min] = [date.getMonth(), date.getDate(), date.getFullYear(),date.getHours(),date.getMinutes()];
+    const pdatstring=day+" "+date.toLocaleString('default', { month: 'short' })+` ${ year} ${min}:${hr}`;
     const postNew = new Post({
         text: newPost,
+        dt: pdatstring,
         user: user_in
     });
     postNew.save();
@@ -190,8 +194,8 @@ app.post("/pst",function(req,res){
             console.log(err)
         }
         else{
-            console.log(genport.genres);
-            console.log(postNew);
+            // console.log(genport.genres);
+            // console.log(postNew);
             genport.post.push(postNew);
             genport.save();
         }

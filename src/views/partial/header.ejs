@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/styles.css">
     <title>BingeIt</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon-32x32.png">
 </head>
 <body>
     <nav style="z-index: 1;">
@@ -24,7 +25,7 @@
                   </div>
             </div>
             <a class="nav_btn" href="/discussion">Discuss</a>
-            <button class="signbutton nav_btn" onclick="document.getElementById('login-form').style.display='block'" style="width:auto;">LOGIN</button>
+            <button class="signbutton nav_btn" onclick="document.getElementById('login-form').style.display='block'" style="width:auto;">Log In</button>
             <form id="form" method="post" action="/">
                 <input type="search" name="userSearch" id="" class="search" placeholder="Search" autocomplete="off">
                 <button type="submit" id="search-btn"><img src="/images/search.png" alt="" width="20px"></button>
@@ -39,15 +40,15 @@
                     <button type='button'onclick='register()'class='toggle-btn'>Register</button>
                 </div>
                 <form id='login' class='input-group-login' method="post" action="/login">
-                    <input type='text' name="username" class='input-field'placeholder='Email Id' required >
+                    <input type='text' name="username" class='input-field'placeholder='Email Id' autocomplete="off" required >
 		            <input type='password' name="password" class='input-field'placeholder='Enter Password' required>
 		    <!-- <input type='checkbox'class='check-box'><span>Remember Password</span> -->
 		    <button type='submit'class='submit-btn'>Log in</button>
 		 </form>
 		 <form id='register' class='input-group-register' method="post" action="/register">
-		     <input type='text' name="fn" class='input-field'placeholder='First Name' required>
-		     <input type='text' name="ln" class='input-field'placeholder='Last Name ' required>
-		     <input type='email' name="username" class='input-field'placeholder='Email Id' required>
+		     <input type='text' name="fn" class='input-field'placeholder='First Name' autocomplete="off" required>
+		     <input type='text' name="ln" class='input-field'placeholder='Last Name ' autocomplete="off" required>
+		     <input type='email' name="username" class='input-field'placeholder='Email Id' autocomplete="off" required>
 		     <input type='password' name="password" class='input-field'placeholder='Enter Password' required>
 		     <input type='password'class='input-field'placeholder='Confirm Password'  required>
 		     <input type='checkbox'class='check-box'><span>I agree to the terms and                                                   conditions</span>

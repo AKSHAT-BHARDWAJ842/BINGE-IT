@@ -5,7 +5,7 @@
       <form action="/genre" method="post">
           <div class="genre_container_db">
               <% cu_int[0].interest.forEach(int=>{ %> 
-                <button class="genre_item_db" type="submit" name="c_gen" value=<%= int %> ><%= int %></button>
+                <button class="genre_item_db" type="submit" name="c_gen" onclick="color(this)" value=<%= int %> > <%= int %></button>
             <% }) %>
           </div>
             
@@ -15,15 +15,27 @@
              <%  if(cont.genres==curr_gen){ %>
                    <div class="headingtext"><%= cont.genres %></div>
                    <div class="line_db"></div>
-               <div class="db_box">
+               <div id="chtar" class="db_box">
                  <%  cont.post.forEach(pst=>{ %>
-                    <div class="message_container">
-                    <div class="sender_name"><%= pst.user.username.substring(0,pst.user.username.indexOf('@')) %></div>
-                    <div class="message_box">
-                        <%= pst.text %>
+                  <!-- console.log(pst.user.username.subtringsubstring(0,pst.user.username.indexOf('@'))) -->
+                    <% if(pst?.user?.username==cu_int[0].user){ %>
+
+                      <div class="message_container_you">
+                      <div class="sender_name"><%= pst?.user?.username.substring(0,pst.user.username.indexOf('@')) %></div>
+                      <div class="message_box_you">
+                          <%= pst.text %>
+                      </div>
+                      <div class="sender_date_time"><%= pst.dt %></div>
+                  </div>
+                      <% } else { %>
+                        <div class="message_container">
+                        <div class="sender_name"><%= pst?.user?.username %></div>
+                        <div class="message_box">
+                            <%= pst.text %>
+                        </div>
+                        <div class="sender_date_time"><%= pst.dt %></div>
                     </div>
-                    <!-- <div class="sender_date_time">Yesterday, 20:48</div> -->
-                </div>
+                      <% } %>
                    
                  <%  }) %>
                </div>
@@ -31,7 +43,7 @@
                <form  action="/pst" class="messagebar" method="post">
                    <input type="text" name="nPost" placeholder="New Post" autocomplete="off" class="input_db">
                    <input type="hidden"  class="sendbutton" name="gen" value=<%= curr_gen %> >
-                   <button type="submit" class="sendbutton" name="np" value="<%=  %>"><img src="/images/output-onlinepngtools (3).png" width="100%" height="100%" style="position: relative; padding: 0; margin-left: 1px;"></button>
+                   <button type="submit" class="sendbutton" name="np" value="<%=  %>"><img src="/images/output-onlinepngtools (3).png" width="24px" style="position: relative; padding: 0; margin-left: 1px;"></button>
                </form>
            <% }  %>
         
@@ -45,8 +57,18 @@
 <% } %>
 <script>
   const cht=document.getElementById('chtar');
-function scrollbtm(area)
+function color(x)
 {
+  
+  var btns=document.getElementsByClassName("genre_item_db");
+  btns.forEach(btn => {
+    btn.classList.remove("clickd");
+  });
+  ele.classList.add("clickd");
+  
+}
+function scrollbtm(area)
+{ 
   area.scrollTop=area.scrollHeight;
 }
 scrollbtm(cht);

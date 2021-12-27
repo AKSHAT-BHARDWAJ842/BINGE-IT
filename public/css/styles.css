@@ -649,7 +649,9 @@ span {
 
 
 /* discussion */
-
+.clickd{
+	background-color: #17e4d6;
+}
 .discuss_box {
 	/* display: flexbox; */
 	/* position: relative; */
@@ -708,7 +710,8 @@ span {
 	left: 0;
 	background: #202020;
 	border-radius: 5px;
-	overflow-x: visible;
+	/* overflow-x: visible; */
+	overflow-x: hidden;
 	overflow-y: scroll;
 	/* justify-content: flex-start; */
 }
@@ -746,6 +749,7 @@ span {
 .sender_date_time {
 	position: relative;
 	bottom: -2px;
+	font-size: 10px;
 	max-width: 600px;
 	text-align: right;
 	/* align-items: flex-end; */
@@ -818,7 +822,7 @@ span {
 	/* -ms-flex-align: end; */
 	/* justify-content: flex-end; */
 	margin-bottom: 25px;
-	margin-left: 70%;
+	margin-left: auto;
 	margin-bottom: 0.5%;
 	
 }

@@ -110,7 +110,7 @@ detail.get("/:id",function(req,res){
       vr:  vidCall(v_url)
   }, function(err, results) {
       if (err) console.log(err);
-      console.log(results);
+    //   console.log(results);
       res.render("details", {results:results});
   });
   
