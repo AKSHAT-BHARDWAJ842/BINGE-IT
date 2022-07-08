@@ -20,6 +20,7 @@ const upc=BASE_URL+"/movie/upcoming?"+API_KEY+"&language=en-US&page=1";
 request(popular,function(error,response,body){
     var data=JSON.parse(body);
     mp=data.results;
+    console.log("call");
 });
 request(bollywood,function(error,response,body){
     var data=JSON.parse(body);
