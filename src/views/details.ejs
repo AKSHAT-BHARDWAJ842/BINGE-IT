@@ -10,9 +10,19 @@
     <p class="tagline"><%= locals.results?.mr?.tagline %></p>
     <p class="rel"><%= "Release : "+ locals.results?.mr?.release_date %></p>
     <p class="rt"><%= "Runtime : "+ locals.results?.mr?.runtime %></p>
-    <p class="sub_h">Overview</p>
+    <div class="star_rating">
+        
+        <!-- <p id="rate"><%= locals.results?.mr?.vote_average %></p> -->
+        <% for(var i=0;i< results.stars.s[0] ;i++){ %>
+            <img src="/images/star_full.png" alt="" width="40px">
+        <% } %>    
+        <% if(results.stars.s[1]==1){ %>
+          <img src="/images/star_half.png" alt="" width="20px">
+        <% } %>
+            
+    </div>
+    <!-- <p class="sub_h">Overview</p> -->
     <p class="ovview"><%= locals.results?.mr?.overview %></p>
-    <p id="rate"><%= locals.results?.mr?.vote_average %></p>
     </div>
 </div> 
 <div class="otdet">

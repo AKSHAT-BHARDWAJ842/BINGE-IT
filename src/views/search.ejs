@@ -8,7 +8,7 @@
  <% if(srch.sr.length!==0){ %>  
     <% for(i=0;i < srch.sr.length;i++) { %>   
         <div class="box_big box">
-            <a class="m_btn" href="/details/<%= srch.sr[i].id %>">
+            <a class="m_btn" href="/dt/<%= srch.sr[i].id %>">
             <span class="green"><%= srch.sr[i].vote_average %></span>
             <img src= <%= "https://image.tmdb.org/t/p/w500"+ srch.sr[i].poster_path  %> alt="" class="image">
             <div class="info">

@@ -1,3 +1,5 @@
+require('dotenv').config()
+// console.log(process.env.API_KEY)
 const express=require("express");
 const request=require("request");
 var async = require('async');
@@ -10,7 +12,7 @@ const passportLocalMongoose = require("passport-local-mongoose");
 
 
 // api key : 8f520d48e32f1c66bbb9e17300dc5258
-const API_KEY= "api_key=8f520d48e32f1c66bbb9e17300dc5258";
+const API_KEY= process.env.API_KEY;
 const BASE_URL= "https://api.themoviedb.org/3";
 const popular =BASE_URL+ "/discover/movie?sort_by=popularity.desc&"+ API_KEY;
 const bollywood =BASE_URL+"/discover/movie?"+ API_KEY+"&language=en-US&sort_by=popularity.desc&page=1&primary_release_year=2021&with_original_language=hi";
@@ -111,8 +113,10 @@ const def=[portal1];
 
 const home=require('./src/routes/home');
 app.use("/",home);
-const detail=require('./src/routes/detail');
-app.use("/details",detail);
+// const detail=require('./src/routes/detail');
+// app.use("/details",detail);
+const dt=require('./src/routes/dt');
+app.use("/dt",dt);
 const genre=require('./src/routes/genre');
 app.use("/genre",genre);
 const search=require('./src/routes/search');

@@ -1,9 +1,10 @@
+require('dotenv').config()
 const express=require("express");
 const request=require("request");
 var async = require('async');
 const search=express.Router();
 
-const API_KEY= "api_key=8f520d48e32f1c66bbb9e17300dc5258";
+const API_KEY=process.env.API_KEY;
 const BASE_URL= "https://api.themoviedb.org/3";
 
 function apiCall(url) {
@@ -26,7 +27,7 @@ search.get("/:searchf",function(req,res){
     var sf=(req.params.searchf);
     sf=sf.replace(' ', '%20');
     s_url=BASE_URL+"/search/movie?"+API_KEY+"&query="+sf+"&language=en-US&page=1&include_adult=false";
-    console.log(s_url);
+    // console.log(s_url);
     async.parallel({
         sr: apiCall(s_url)
     }, function(err, result) {

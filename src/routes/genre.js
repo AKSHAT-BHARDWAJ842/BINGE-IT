@@ -1,9 +1,10 @@
+require('dotenv').config()
 const express=require("express");
 const request=require("request");
 var async = require('async');
 const genre=express.Router();
 
-const API_KEY= "api_key=8f520d48e32f1c66bbb9e17300dc5258";
+const API_KEY=process.env.API_KEY;
 const BASE_URL= "https://api.themoviedb.org/3";
 
 function apiCall(url) {

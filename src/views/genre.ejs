@@ -7,7 +7,7 @@
     <main id="main">
         <% for(i=0;i < 20;i++) { %>   
             <div class="box_big box">
-                <a class="m_btn" href="/details/<%= detr.d_r[i].id %>">
+                <a class="m_btn" href="/dt/<%= detr.d_r[i].id %>">
                 <span class="green"><%= detr.d_r[i].vote_average %></span>
                 <img src= <%= "https://image.tmdb.org/t/p/w500"+ detr.d_r[i].poster_path  %> alt="" class="image">
                 <div class="info">
