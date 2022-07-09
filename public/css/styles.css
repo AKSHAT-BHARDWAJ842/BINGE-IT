@@ -893,3 +893,8 @@ span {
 	border-radius: 10px;
 	/* height: 20px; */
 }
+.maint{
+	color:white;
+	text-align: center;
+	margin:auto;
+}

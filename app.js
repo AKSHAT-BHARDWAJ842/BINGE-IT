@@ -129,20 +129,30 @@ var user_in;
 var curr_gen;
 app.get("/discussion",function(req,res){
     if(req.isAuthenticated()){
-      
-       
-       Interest.find({user: user_in.username},function(err,u_int){
-           Portal.find({},function(err,cont){
-               if(!err)
-               {  
-                   if (typeof curr_gen == 'undefined')
-               {  curr_gen=cont[0].genres;
+        // alert("this functionality is under develepment, Please try later");
+       res.render("discussion",{aut: false});
+    //    Interest.find({user: user_in.username},function(err,u_int){
+    //     console.log(u_int);
+    //     console.log(u_int.interest)
+    //        Portal.find({},function(err,cont){
+    //            if(!err)
+    //            {  console.log(cont)
+    //                if(cont.length==0){
+    //                 res.redirect("/");
+    //                }
+    //                if (typeof curr_gen == 'undefined')
+    //            { 
+    //             if (typeof u_int.interest == 'undefined')
+    //            {
+    //             res.redirect('/');
+    //            }
+    //              curr_gen=u_int.interest[0];
                 
-               }
-                   res.render("discussion",{content:cont,cu_int:u_int,curr_gen:curr_gen,aut: true});
-               }
-           })
-       })
+    //            }
+    //                res.render("discussion",{content:cont,cu_int:u_int,curr_gen:curr_gen,aut: true});
+    //            }
+    //        })
+    //    })
     }
     else{
         res.render("discussion",{aut: false});

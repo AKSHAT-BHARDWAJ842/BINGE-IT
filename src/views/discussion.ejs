@@ -1,4 +1,6 @@
 <%- include('partial/header'); -%>
+<% aut=false %> <!-- change to get functionality in future -->
+  
 <% if(aut==true){ %> 
 <div class="discuss_box">
     
@@ -55,6 +57,9 @@
 
 
 <% } %>
+<% if(aut==false){ %> 
+  <h1 class="maint">Currently Down for Maintenance</h1>
+  <% } %>  
 <script>
   const cht=document.getElementById('chtar');
 function color(x)
