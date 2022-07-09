@@ -212,7 +212,9 @@ app.post("/pst",function(req,res){
 app.post("/register",function(req,res){
     
     User.register({username: req.body.username}, req.body.password,function(err,user){
-        if(err){console.log(err)
+        if(err){
+        console.log("error occured here");    
+        console.log(err);
         res.redirect("/")}
         else{
             // console.log(user);
