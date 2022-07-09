@@ -20,19 +20,22 @@ const upc=BASE_URL+"/movie/upcoming?"+API_KEY+"&language=en-US&page=1";
 request(popular,function(error,response,body){
     var data=JSON.parse(body);
     mp=data.results;
-    console.log("call");
+    console.log("pop");
 });
 request(bollywood,function(error,response,body){
     var data=JSON.parse(body);
     boll=data.results;
+    console.log("boll");
 });
 request(thriller,function(error,response,body){
     var data=JSON.parse(body);
     thrill=data.results;
+    console.log("thr");
 });
 request(action,function(error,response,body){
     var data=JSON.parse(body);
     act=data.results;
+    console.log("act");
 });
 request(horror,function(error,response,body){
     var data=JSON.parse(body);
@@ -55,6 +58,7 @@ home.get("", async(req,res) =>{
         auth=true;
         req.db
     }
+    console.log(mp);
     res.render("home",{p_result: mp,b_result: boll,t_result: thrill,a_result: act,an_result: animat,h_result:hor,upc_result: upcom,aut:auth});
 })
 
