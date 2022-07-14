@@ -31,7 +31,27 @@
                 <input type="search" name="userSearch" id="" class="search" placeholder="Search" autocomplete="off">
                 <button type="submit" id="search-btn"><img src="/images/search.png" alt="" width="20px"></button>
             </form>
+            <!-- <div class="dropd-small">
+                <button  onclick="dd()" class="dd-small">v</button>
+                    <div class="dd-s" id="dds">
+                    <button class="dropbtn nav_btn">Categories</button>
+                        <div class="dropdown-content">
+                            <a href="/genre/28/Action">Action</a>
+                            <a href="/genre/12/Adventure">Adventure</a>
+                            <a href="/genre/35/Comedy">Comedy</a>
+                            <a href="/genre/878/Science Fiction">Science Fiction</a>
+                            <a href="/genre/27/Horror">Horror</a>
+                            <a href="/genre/10751/Family">Family</a>
+                            <a href="/genre/16/Animation">Animation</a>
+                          </div>
+                    
+                    <a class="nav_btn" href="/discussion">Discuss</a>
+                    <button class="signbutton nav_btn" onclick="document.getElementById('login-form').style.display='block'" style="width:auto;">Log In</button>
+                    </div>
+            </div> -->
+                </div>
     </div>
+    
     </nav>
      <div id='login-form'class='login-page'>
             <div class="form-box">
@@ -84,4 +104,21 @@
                 modal.style.display = "none";
             }
         }
+    </script>
+    <script>
+        function dd(){
+            document.getElementById('dds').classList.toggle('show');
+        }
+        window.onclick = function(event) {
+  if (!event.target.matches('.dropd-small')) {
+    var dropdowns = document.getElementsByClassName("dd-s");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
     </script>
